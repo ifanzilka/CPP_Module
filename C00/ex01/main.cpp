@@ -14,10 +14,7 @@
 
 #endif
 
-void	getMan()
-{	
 
-}
 
 int	main(void)
 {
