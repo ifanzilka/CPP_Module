@@ -10,12 +10,12 @@ void	PhoneBook::viewContacts(void) const
 {
 	std::cout << F_BLUE;
 	std::cout << "+--------------------------------------+\n";
-    std::cout << "|               PHONE BOOK             |\n";
-    std::cout << "+--------------------------------------+\n";
-
+	std::cout << "|               PHONE BOOK             |\n";
 	std::cout << "+--------------------------------------+\n";
-    std::cout << "|Index| FirstName| LastName | NickName |\n";
-    std::cout << "+--------------------------------------+\n";
+	
+	std::cout << "+--------------------------------------+\n";
+	std::cout << "|Index| FirstName| LastName | NickName |\n";
+	std::cout << "+--------------------------------------+\n";
 	for (int i = 0; i < this->cntContact; i++)
 	{
 		std::cout <<"|"<< std::setw(5) << i + 1 << "|";
