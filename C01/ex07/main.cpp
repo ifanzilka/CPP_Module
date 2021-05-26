@@ -33,7 +33,7 @@ void	replaceText(std::string &fileText, std::string &s1, std:: string &s2)
 
 	while (1)
 	{
-		index = fileText.find(s1, 0);
+		index = fileText.find(s1, index);
 		if (index == std::string::npos)
 				break;
 		fileText.replace(index, s1.length(), s2);
