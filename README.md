@@ -11,3 +11,7 @@
 #### Module06: Приведние типов<br>
 #### Module07: Шаблоные типы<br>
 #### Module08: Итераторы
+
+Compile:
+    
+      clang++ -Wall -Wextra -Werror -std=c++98 *.cpp
