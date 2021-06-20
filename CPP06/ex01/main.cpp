@@ -43,24 +43,44 @@ std::string	random_string()
 }
 
 
+// void * serialize(void)
+// {
+// 	std::srand(time(0));
+
+// 	char *ptr = new char[52];
+
+// 	std::string str_1  = random_string();
+// 	int 		num  = rand() % 1000;
+// 	std::string	str_2 = random_string();
+	
+// 	std::cout << "-------generated values-------" << std::endl;
+// 	std::cout << "string 1:	" << str_1 << std::endl;
+// 	std::cout << "number:		" << num << std::endl;
+// 	std::cout << "string 2:	" << str_2 << std::endl;
+// 	std::cout << "------------------------------" << std::endl;
+// 	memcpy(ptr, &str_1, 24);
+// 	memcpy(ptr + 24, &num, 4);
+// 	memcpy(ptr + 28, &str_2, 24);
+// 	return (ptr);
+// }
+
 void * serialize(void)
 {
 	std::srand(time(0));
 
 	char *ptr = new char[52];
+	Data *data = new Data;
 
-	std::string str_1  = random_string();
-	int 		num  = rand() % 1000;
-	std::string	str_2 = random_string();
+	data->str_1 = random_string();
+	data->num = rand() % 1000;
+	data->str_2 = random_string();
 	
 	std::cout << "-------generated values-------" << std::endl;
-	std::cout << "string 1:	" << str_1 << std::endl;
-	std::cout << "number:		" << num << std::endl;
-	std::cout << "string 2:	" << str_2 << std::endl;
+	std::cout << "string 1:	" << data->str_1 << std::endl;
+	std::cout << "number:		" << data->num << std::endl;
+	std::cout << "string 2:	" << data->str_2 << std::endl;
 	std::cout << "------------------------------" << std::endl;
-	memcpy(ptr, &str_1, 24);
-	memcpy(ptr + 24, &num, 4);
-	memcpy(ptr + 28, &str_2, 24);
+	memcpy(ptr, data, 52);
 	return (ptr);
 }
 
@@ -76,16 +96,21 @@ void * serialize(void)
 // 	return (data);
 // }
 
-Data	*deserialize(void *ptr_data)
-{
-	Data 	*data = new Data;
-	char	*ptr;
+// Data	*deserialize(void *ptr_data)
+// {
+// 	Data 	*data = new Data;
+// 	char	*ptr;
 
-	ptr = reinterpret_cast<char *>(ptr_data);
-	data->str_1 = *(reinterpret_cast<std::string*>(ptr));
-	data->num =  *(reinterpret_cast<int*>(ptr + 24));
-	data->str_2 = *(reinterpret_cast<std::string*>(ptr + 28));
-	return (data);
+// 	ptr = reinterpret_cast<char *>(ptr_data);
+// 	data->str_1 = *(reinterpret_cast<std::string*>(ptr));
+// 	data->num =  *(reinterpret_cast<int*>(ptr + 24));
+// 	data->str_2 = *(reinterpret_cast<std::string*>(ptr + 28));
+// 	return (data);
+// }
+
+Data *deserialize(void *ptr_data)
+{
+	return (reinterpret_cast<Data *>(ptr_data));
 }
 
 int main()
