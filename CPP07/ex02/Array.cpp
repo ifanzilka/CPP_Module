@@ -33,7 +33,7 @@ template <typename T>
 Array<T>& Array<T>::operator=(const Array<T> & copy)
 {
 	if (_arr)
-			delete _arr;
+			delete[] _arr;
 	this->_size = copy._size;
     this->_arr = new T[this->_size];
     for (int i = 0; i < (int)_size; ++i) 
