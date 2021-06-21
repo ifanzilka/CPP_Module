@@ -1,15 +1,16 @@
 #ifndef WHATEVER_HPP
 # define  WHATEVER_HPP
 
+#include "Awesome.hpp"
+
 namespace ft_42
 {
 	template <class T>
 
 	void swap(T &a, T&b)
 	{
-		T tmp;
+		T tmp(a);
 
-		tmp  = a;
 		a = b;
 		b = tmp;
 		//a,b = b,a;

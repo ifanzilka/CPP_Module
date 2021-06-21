@@ -1,7 +1,6 @@
 #include "whatever.hpp"
 #include <iostream>
 
-
 void TestSubject()
 {
 	int a = 2;
@@ -21,6 +20,14 @@ void TestSubject()
 
 int main(void)
 {
+	Awesome a(1);
+	Awesome b(2);
+	
+	ft_42::swap(a, b);
+
+	std::cout << "a: " << a.getN() << std::endl;
+	std::cout << "b: " << b.getN() << std::endl;
+
 	TestSubject();	
 
 	return (0);

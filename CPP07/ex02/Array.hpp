@@ -13,58 +13,24 @@ private:
 		unsigned int 	_size;
 public:
 		/* Constructor */
-		Array(/* args */) : _arr(0), _size(0)
-		{
-			
-		};
+		Array(/* args */);
 
-		Array(unsigned int size): _size(size)
-		{
-			_arr = new T[size];
-		}
+		Array(unsigned int size);
 
 		/* Destructor */
-		~Array()
-		{
-			delete _arr;
-		}
+		~Array();
 
 		/* Overload copy constructor */
-		Array(const Array & copy)
-		{
-			*this = copy;
-		}
+		Array(const Array & copy);
 
 		/* Overlaod operator= */
-		Array &operator=(const Array & copy)
-		{
-			if (_arr)
-				delete _arr;
-			this->_size = copy._size;
-        	this->_arr = new T[this->_size];
-        	for (int i = 0; i < (int)_size; ++i) 
-			{
-				this->_arr[i] = copy._arr[i];
-			}
-        	return *this;	
-		}
+		Array &operator=(const Array & copy);
 
 		/* overload operator [] */
-		T & operator[] (const int index)
-		{
-			if (index < 0 || index > (int)_size)
-				throw std::out_of_range("out of range!!!");
-			else
-			{
-				return _arr[index];
-			}	
-		}
+		T & operator[] (const int index);
 
 		/* Getters */
-		unsigned int getSize() const 
-		{
-			return (_size);
-		}
+		unsigned int getSize() const ;
 };
 
 
