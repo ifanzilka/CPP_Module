@@ -5,7 +5,7 @@
 
 template <class T>
 
-typename T::iterator easyFind(T & arr, int num)
+typename T::iterator easyFind(T & array, int find)
 {
 	/* Example Iterators
 
@@ -33,24 +33,29 @@ typename T::iterator easyFind(T & arr, int num)
     }
 
 	*/
-
 	typename T::iterator 	it;
-	int						i;
 
-	i = 0;
-	it = arr.begin();
-	while (it != arr.end())
-	{	
-		if (i == num)
-			return (it);
-		i++;
-		it++;
-	}
-	if (it == arr.end())
-	{
+	if ((it = std::find(array.begin(), array.end(), find)) == array.end())
 		throw std::runtime_error("not found!");
-	}
-	return(it);
+	return (it);
+	
+	// typename T::iterator 	it;
+	// int						i;
+
+	// i = 0;
+	// it = arr.begin();
+	// while (it != arr.end())
+	// {	
+	// 	if (i == num)
+	// 		return (it);
+	// 	i++;
+	// 	it++;
+	// }
+	// if (it == arr.end())
+	// {
+	// 	throw std::runtime_error("not found!");
+	// }
+	// return(it);
 }
 
 #endif
